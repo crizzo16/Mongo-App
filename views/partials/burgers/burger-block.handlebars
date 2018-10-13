@@ -1,0 +1,9 @@
+<li>
+	{{name}}
+	{{#if eaten}}
+	<button class="change-eaten body-font btn orange darken-3" data-id="{{id}}" data-neweaten="{{eaten}}">Eat Me!
+	</button>
+	{{/if}}
+
+	<button class="delete-burger btn body-font red darken-2" data-id="{{this.id}}">X</button>
+</li>

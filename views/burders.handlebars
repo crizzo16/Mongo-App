@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col s2"></div>
+  <div class="col s8">
+    <div class="border-outer">
+      <div class="border-red">
+        <div class="border-inner">
+          <h1 class="title center-align">BURGER BURGER</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s2"></div>
+</div>
+
+<div class="row burger-row">
+  <div class="col s12 m4 right-align">
+    <h2 class="body-font underline">Haven't Tried!</h2>
+
+    <ul class="body-font">
+      {{#each burgers}} {{#unless eaten}} {{> burgers/burger-block eaten=true}} {{/unless}} {{/each}}
+    </ul>
+  </div>
+
+  <img src="/assets/images/burger.png" class="main-burger col s12 m4" />
+
+  <div class="col s12 m4 triple-border">
+    <h2 class="body-font underline">Already Tried!</h2>
+
+    <ul class="body-font">
+      {{#each burgers}} {{#if eaten}} {{> burgers/burger-block eaten=false}} {{/if}} {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s0 m2"></div>
+  <div class="col s12 m8">
+    <div class="border-outer">
+      <div class="border-red">
+        <div class="border-inner">
+          <form class="create-form body-font">
+            <h2 class="body-font underline">Add a burger</h2>
+            <div class="input-field center-align">
+              <input type="text" id="ca" name="name">
+              <label for="ca">Burger Name</label>
+            </div>
+            <button class="body-font btn red darken-2 create-form center-align" type="submit">Add burger</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s0 m2"></div>
+</div>

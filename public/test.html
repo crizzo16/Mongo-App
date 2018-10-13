@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="./css/reset.css" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="./css/styles.css" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mongo App</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body class="cyan lighten-5">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper cyan darken-3">
+        <div class="container">
+          <a href="#top" class="brand-logo">My Favorite Things</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="m-0"><a class="scrape-articles">Scrape Articles</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main content container -->
+  <div class="container" id="top">
+    <div class="row">
+      <div class="col s12 m8 flex">
+        <div class="card card-width hoverable">
+          <div class="card-image">
+            <img src="https://cdn.vox-cdn.com/thumbor/PtnIrIomab8wYI71wSwdT6oTIw4=/338x0:1771x806/250x141/cdn.vox-cdn.com/uploads/chorus_image/image/61654453/MV5BN2Q4OTYyZjQtMDk5MS00Njc4LTgyNTktZmM1ZDA2Y2FiODViXkEyXkFqcGdeQXVyODQyNzAxMzM_._V1_.0.jpg" />
+          </div>
+          <div class="card-content">
+            <span class="card-title">Title</span>
+            <p>Content</p>
+          </div>
+          <div class="card-action">
+            <a href="">Link to article</a>
+          </div>
+        </div>
+        <div class="card card-width hoverable" data-_id="">
+          <div class="card-image">
+            <img src="https://cdn.vox-cdn.com/thumbor/PtnIrIomab8wYI71wSwdT6oTIw4=/338x0:1771x806/250x141/cdn.vox-cdn.com/uploads/chorus_image/image/61654453/MV5BN2Q4OTYyZjQtMDk5MS00Njc4LTgyNTktZmM1ZDA2Y2FiODViXkEyXkFqcGdeQXVyODQyNzAxMzM_._V1_.0.jpg" />
+          </div>
+          <div class="card-content">
+            <span class="card-title">Title</span>
+            <p class="short-description">Content</p>
+          </div>
+          <div class="card-action">
+            <a href="" target="_blank">Link to article</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4 amber accent-4 comments-large ">
+        <h4>Selected Title</h4>
+        <form class="black-text">
+          <div class="input-field">
+            <input id="name" type="text">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-field">
+            <textarea id="body" class="materialize-textarea"></textarea>
+            <label for="body">Type your comment here</label>
+          </div>
+          <button type="submit" id="submit" class="btn cyan darken-4">Submit</button>
+        </form>
+        <div class="divider small-m-top-bottom grey darken-3"></div>
+        <div class="scroll comments-height" id="comments-here">
+          <div class="row">
+            <div class="col s2">
+              <h6><strong>Name</strong></h6>
+            </div>
+            <div class="col s1"></div>
+            <div class="col s9">
+              <p>comment comment comment comment comment comment comment comment.</p>
+            </div>
+          </div>
+          <div class="divider small-m-top-bottom grey darken-3"></div>
+          <div class="row">
+            <div class="col s2">
+              <h6><strong>Name</strong></h6>
+            </div>
+            <div class="col s1"></div>
+            <div class="col s9">
+              <p>comment comment comment comment comment comment comment comment.</p>
+            </div>
+          </div>
+          <div class="divider small-m-top-bottom grey darken-3"></div>
+          <div class="row">
+            <div class="col s2">
+              <h6><strong>Name</strong></h6>
+            </div>
+            <div class="col s1"></div>
+            <div class="col s9">
+              <p>comment comment comment comment comment comment comment comment.</p>
+            </div>
+          </div>
+          <div class="divider small-m-top-bottom grey darken-3"></div>
+          <div class="row">
+            <div class="col s2">
+              <h6><strong>Name</strong></h6>
+            </div>
+            <div class="col s1"></div>
+            <div class="col s9">
+              <p>comment comment comment comment comment comment comment comment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.collapsible').collapsible();
+    });
+
+    var elem = document.querySelector('.collapsible.expandable');
+    var instance = M.Collapsible.init(elem, {
+      accordion: false
+    });
+  </script>
+</body>
+
+</html>

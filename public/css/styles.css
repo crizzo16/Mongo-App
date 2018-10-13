@@ -1,0 +1,214 @@
+.comments-large {
+    height: 85vh;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.h100 {height:100%;}
+.hcomment{
+    max-height:50px;
+    padding: 2%;
+}
+
+.comments-height {
+    max-height: 30vh;
+}
+
+.not-selected {
+    opacity: 0.5;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.opacity {
+    -webkit-filter: opacity(70%);
+    filter: opacity(70%);
+}
+
+.auto-img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.m-large-bottom {
+    margin-bottom: 30px;
+}
+
+.m-medium-bottom {
+    margin-bottom: 20px;
+}
+
+.black-border {
+    border: 3px solid black;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.max-card-height {
+    height: 200px;
+}
+
+.small-padding {
+    padding: 10px;
+}
+
+.height-1 {
+    height: 600px;
+}
+
+.negative-space {
+    height: 30vh;
+}
+
+.ns-xs {
+    height: 20vh;
+}
+
+.ns-sm {
+    height: 40vh;
+}
+
+.ns-md {
+    height: 60vh;
+}
+
+.ns-lg {
+    height: 80vh;
+}
+
+.brand-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.height-2 {
+    height: 300px;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.parallax img {
+    width: 100%;
+    height: auto;
+}
+
+.most-width {width: 90%;}
+.full-width {
+    width: 100%;
+}
+
+.float-left {
+    float: left;
+    border: 2px solid black;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.small-width {
+    width: 20%;
+}
+
+ul li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.small-m-top-bottom {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.blue-transparent {
+    background: rgba(13, 71, 161, .8);
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.m-sm {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.m-md {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.box-border {
+    border: 10px solid transparent;
+    border-image: url("../images/border.svg");
+    border-image-slice: 120 120 120 120; 
+    border-image-width: 20px 20px 20px 20px; 
+    border-image-outset: 0px 0px 0px 0px; 
+    border-image-repeat: stretch stretch;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    padding: 10px; 
+}
+
+.curve-border {
+    border: 3px solid white;
+    border-top-right-radius: 20px;
+}
+
+.card-width {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+@media screen and (max-width: 992px) {
+    .parallax img {
+        width: 130%;
+    }
+
+    .parallax-container {
+        height: 300px;
+    }
+
+    .card-width {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .parallax-container {
+        height: 200px;
+    }
+}
