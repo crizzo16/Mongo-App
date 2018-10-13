@@ -138,6 +138,12 @@ app.get("/articles/:id", function(req, res) {
     });
 });
 
+app.delete("/comments/:id", function(req, res) {
+  db.Comment.remove({_id: req.params.id}, function (err) {
+    //location.reload();
+  });
+});
+
 // Route for saving/updating an Article's associated Comment
 app.post("/articles/:id", function(req, res) {
   // save the new comment that gets posted to the Comments collection
@@ -145,18 +151,18 @@ app.post("/articles/:id", function(req, res) {
   // and update it's "comment" property with the _id of the new comment
   db.Comment.create(req.body)
     .then(function(dbComment) {
-      console.log("----------------");
-      console.log(dbComment._id);
-      console.log(req.params.id);
+      //console.log("----------------");
+      //console.log(dbComment._id);
+      //console.log(req.params.id);
       return db.Article.findOneAndUpdate(
         { _id: req.params.id },
         { $push: { comments: dbComment._id } },
         { new: true }
-      );
+      ).populate("comments");
     })
     .then(function(dbArticles) {
-      console.log("**********************");
-      console.log(dbArticles);
+      //console.log("**********************");
+      //console.log(dbArticles);
       res.json(dbArticles);
     })
     .catch(function(err) {

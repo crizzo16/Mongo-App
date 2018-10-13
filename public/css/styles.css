@@ -1,18 +1,26 @@
 .comments-large {
-    height: 85vh;
     overflow: hidden;
     padding-bottom: 15px;
+}
+
+.padd {
+    padding: 2%;
 }
 
 .scroll {
     overflow-y: auto;
     overflow-x: hidden;
+    max-height: 40vh;
 }
 
 .h100 {height:100%;}
 .hcomment{
     max-height:50px;
     padding: 2%;
+}
+
+.hover-red:hover {
+    color: red;
 }
 
 .comments-height {

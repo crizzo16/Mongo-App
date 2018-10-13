@@ -39,21 +39,45 @@ $(document).on("click", ".card", function() {
     console.log(data.comments[0].name);
     console.log(data.comments.length);
     for (let i = 0; i < data.comments.length; i++) {
-      let row = $("<div>").addClass("row hcomment valign-wrapper");
+      let row = $("<div>")
+        .addClass("row hcomment valign-wrapper")
+        .attr("id", data.comments[i]._id);
       let col2 = $("<div>").addClass("col s2 valign-wrapper h100");
-      let h = $("<h6>").addClass("truncate").html("<strong>" + data.comments[i].name + "</strong>");
+      let h = $("<h6>")
+        .addClass("truncate")
+        .html("<strong>" + data.comments[i].name + "</strong>");
       col2.append(h);
       let col1 = $("<div>").addClass("col s1 valign-wrapper h100");
+      let x = $("<h6>")
+        .text("X")
+        .attr("data-id", data.comments[i]._id)
+        .addClass("hover-red remove-comment");
+      col1.append(x);
       let col9 = $("<div>").addClass("col s9 valign-wrapper h100");
-      let p = $("<p>").addClass("truncate").text(data.comments[i].body);
+      let p = $("<p>")
+        .addClass("truncate")
+        .text(data.comments[i].body);
       col9.append(p);
       let divider = $("<div>").addClass("divider");
-      row.append(col2, col1, col9);
+      row.append(col2, col9, col1);
       $("#comments-here").append(row);
-      if (i<data.comments.length-1){
+      if (i < data.comments.length - 1) {
         $("#comments-here").append(divider);
       }
     }
+  });
+});
+
+$(document).on("click", ".remove-comment", function(event) {
+  const commentId = $(this).attr("data-id");
+  const commentLineId = "#" + commentId;
+  $(commentLineId).remove();
+  $.ajax({
+    method: "DELETE",
+    url: "/comments/" + commentId
+  }).then(function(returnData) {
+    console.log("deleted comment");
+    console.log(returnData);
   });
 });
 
@@ -77,8 +101,39 @@ $(document).on("click", "#submit", function(event) {
     url: "/articles/" + articleId,
     data: commentData
   }).then(function(returnData) {
-    console.log("########################################");
-    console.log(returnData);
+    //console.log("########################################");
+    //console.log(returnData);
+    let divider = $("<div>").addClass("divider");
+    let row = $("<div>")
+      .addClass("row hcomment valign-wrapper")
+      .attr("id", returnData.comments[returnData.comments.length - 1]._id);
+    let col2 = $("<div>").addClass("col s2 valign-wrapper h100");
+    let h = $("<h6>")
+      .addClass("truncate")
+      .html(
+        "<strong>" +
+          returnData.comments[returnData.comments.length - 1].name +
+          "</strong>"
+      );
+    col2.append(h);
+    let col1 = $("<div>").addClass("col s1 valign-wrapper h100");
+    let x = $("<h6>")
+      .text("X")
+      .attr("data-id", returnData.comments[returnData.comments.length - 1]._id)
+      .addClass("hover-red remove-comment");
+    col1.append(x);
+    let col9 = $("<div>").addClass("col s9 valign-wrapper h100");
+    let p = $("<p>")
+      .addClass("truncate")
+      .text(returnData.comments[returnData.comments.length - 1].body);
+    col9.append(p);
+    row.append(col2, col9, col1);
+    if (returnData.comments.length > 1) {
+      $("#comments-here").append(divider, row);
+    } else {
+      $("#comments-here").append(row);
+    }
+
     $("#name").val("");
     $("#body").val("");
   });
