@@ -32,14 +32,14 @@ app.use(express.json());
 app.use(express.static("public"));
 // Connect to the Mongo DB
 
-// if (process.env.MONGODB_URI) {
-//   mongoose.connect(process.env.MONGODB_URI);
-// } else {
-//   mongoose.connect(
-//     "mongodb://localhost/mongoScrapeApp",
-//     { useNewUrlParser: true }
-//   );
-// };
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(
+    "mongodb://localhost/mongoScrapeApp",
+    { useNewUrlParser: true }
+  );
+};
 
 const dbConnect = mongoose.connection;
 dbConnect.on("error", function (err) {
@@ -110,8 +110,7 @@ app.get("/articles", function(req, res) {
 });
 
 app.get("/", function(req, res) {
-  res.render("index");
-  /*
+  //res.render("index");
   db.Article.find({})
     .then(function(data) {
       //console.log("****************************");
@@ -121,7 +120,7 @@ app.get("/", function(req, res) {
     })
     .catch(function(err) {
       res.render("index", err);
-    });*/
+    });
 });
 
 // Route for grabbing a specific Article by id, populate it with it's comment
