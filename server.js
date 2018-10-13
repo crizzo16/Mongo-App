@@ -30,12 +30,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
-
 // Connect to the Mongo DB
-mongoose.connect(
-  "mongodb://localhost/mongoScrapeApp",
-  { useNewUrlParser: true }
-);
+
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(
+    "mongodb://localhost/mongoScrapeApp",
+    { useNewUrlParser: true }
+  );
+};
+
+const dbConnect = mongoose.connection;
+dbConnect.on("error", function (err) {
+  console.log("Mongoose Error: ", err);
+});
 
 // Routes
 
